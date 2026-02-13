@@ -1,4 +1,4 @@
-``` lisp
+```
 ;; 警告抑制は基本オフ推奨（必要なら有効化）
 ;; (setq byte-compile-warnings '(not obsolete))
 
@@ -46,4 +46,6 @@
 
 ;; 統一ディレクトリからロード
 (init-loader-load "~/.config/elisp")
+
+;; 99-custom.elでカスタマイズ
 ```

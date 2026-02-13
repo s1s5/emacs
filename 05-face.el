@@ -1,0 +1,11 @@
+(set-face-foreground 'comint-highlight-prompt "#8888ff")
+(set-face-foreground 'font-lock-variable-name-face "#ccccff")
+(set-face-foreground 'font-lock-keyword-face "#4488cc")
+(set-face-foreground 'font-lock-comment-face "#ff8888")
+(set-face-foreground 'font-lock-string-face "#88ff88")
+(set-face-foreground 'font-lock-builtin-face "#aaccff")
+(set-face-foreground 'font-lock-constant-face "#aaaaff")
+(set-face-foreground 'font-lock-type-face "#aaaaff")
+(set-face-foreground 'font-lock-function-name-face "#88aaff")
+(set-face-foreground 'minibuffer-prompt "#1e90ff")
+
