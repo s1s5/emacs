@@ -162,3 +162,4 @@
       '(magit-log-margin '(t "%Y/%m/%d %H:%M" magit-log-margin-width t 16)))))
 
 ;;; 37-magit.el ends here
+

@@ -6,7 +6,7 @@
     ag
     bash-completion
     helm
-    helm-ag
+    helm-rg
     helm-ls-git
     json-mode
     key-combo

@@ -1,5 +1,0 @@
-(setq helm-ag-base-command "ag --nocolor --nogroup --hidden")
-(setq helm-ag-command-option " --all-text")
-(setq helm-ag-insert-at-point 'symbol)
-(setq helm-ag-use-agignore t)
-(setq helm-ag-ignore-buffer-patterns '("\\.txt\\'" "\\.mkd\\'"))

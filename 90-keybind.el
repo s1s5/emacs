@@ -83,7 +83,7 @@
 (global-set-key (kbd "M-y")     'helm-show-kill-ring)
 ; (global-set-key (kbd "M-r") 'helm-resume)
 ; (global-set-key (kbd "M-i") 'helm-swoop)
-(global-set-key (kbd "M-j") 'helm-do-ag)
+(global-set-key (kbd "M-j") #'helm-rg)
 (defun set-c-c++-helm-do-ag ()
   (define-key c++-mode-map (kbd "M-j") 'helm-do-ag)
   )
