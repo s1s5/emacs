@@ -24,3 +24,4 @@
     (package-refresh-contents)
     (dolist (pkg not-installed)
         (package-install pkg))))
+

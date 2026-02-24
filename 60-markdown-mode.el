@@ -45,4 +45,8 @@
     (set-face-background 'font-lock-variable-name-face nil)
     ))
 
+(with-eval-after-load 'markdown-mode
+  (define-key markdown-mode-map (kbd "`") nil)
+  (define-key gfm-mode-map (kbd "`") nil))
+
 ;;; 60-markdown-mode.el ends here

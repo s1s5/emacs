@@ -177,3 +177,13 @@
 (aset char-width-table ?∟ 1) 
 (setq warning-minimum-level :error)
 (aset char-width-table ?⇒ 1)
+
+
+(add-to-list
+ 'display-buffer-alist
+ '("\\*Warnings\\*"
+   (display-buffer-no-window)))
+
+; リンクそのものを訪問する
+(setq find-file-visit-truename nil)
+(setq vc-follow-symlinks nil)
