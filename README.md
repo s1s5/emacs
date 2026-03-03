@@ -14,7 +14,7 @@
 (ensure-dir "~/.config/elisp-packages")
 
 ;; emacs ディレクトリを ~/.config 配下へ
-(setq user-emacs-directory "~/.config/emacs/")
+(setq user-emacs-directory "~/.config/elisp/")
 
 ;; package 保存先変更
 (setq package-user-dir "~/.config/elisp-packages")
@@ -41,13 +41,13 @@
 (require 'init-loader)
 
 ;; elisp ディレクトリを load-path に追加
-(add-to-list 'load-path "~/.config/elisp")
+(add-to-list 'load-path "~/.config/emacs")
 
 ;; init-loader 設定
 (setq init-loader-show-log-after-init 'error-only)
 
 ;; 統一ディレクトリからロード
-(init-loader-load "~/.config/elisp")
+(init-loader-load "~/.config/emacs")
 
 ;; 99-custom.elでカスタマイズ
 ```
