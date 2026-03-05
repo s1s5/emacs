@@ -137,3 +137,6 @@
 ;; 誤ってコマンドを叩いても何も起きないようにする
 (defun toggle-input-method () (interactive) (message "Emacs IME is disabled."))
 (defun set-input-method (input-method) (interactive) (message "Emacs IME is disabled."))
+
+; agent-shell
+(global-set-key (kbd "<f8>") 'agent-shell-goose-start-agent)
