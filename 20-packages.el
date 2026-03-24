@@ -15,6 +15,8 @@
     popwin
     yaml-mode
     web-mode
+    shell-maker
+    agent-shell
     ))
 
 (let ((not-installed (loop for x in installing-package-list
