@@ -24,7 +24,10 @@
                               ;; キー設定
                               (local-set-key (kbd "RET") 'newline)
                               (local-set-key (kbd "C-c C-c") 'shell-maker-submit)
-                              (local-set-key (kbd "C-c C-k") 'agent-shell-interrupt))))
+                              (local-set-key (kbd "C-c C-k") 'agent-shell-interrupt)
+                              )
+                          )
+  )
 
 ;; グローバル抑制
 (setq header-line-format nil)
