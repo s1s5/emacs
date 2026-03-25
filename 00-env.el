@@ -198,54 +198,61 @@
 (defun my-setup-ambiguous-width ()
   (let ((table (make-char-table nil)))
     ;; 記号やギリシャ文字などの曖昧幅の範囲を2カラムに設定
-    (set-char-table-range char-width-table '(#x00A1  .  #x00AF) 1)
+    (set-char-table-range char-width-table '(#x00A1  .  #x00FF) 1)
     (set-char-table-range char-width-table '(#x0370  .  #x03FF) 1) ; ギリシャ文字
     (set-char-table-range char-width-table '(#x2010  .  #x205E) 1) ; 記号・ダッシュ
     (set-char-table-range char-width-table '(#x2100  .  #x218F) 1) ; 文字様記号
     (set-char-table-range char-width-table '(#x2190  .  #x21FF) 1) ; 文字様記号
     (set-char-table-range char-width-table '(#x2200  .  #x22FF) 1) ; 数学記号
     (set-char-table-range char-width-table '(#x2300  .  #x23FF) 1) ; 技術記号
+    (set-char-table-range char-width-table '(#x2400  .  #x24FF) 1) ; 
     (set-char-table-range char-width-table '(#x2500  .  #x257F) 1) ; 罫線
     (set-char-table-range char-width-table '(#x2580  .  #x259F) 1) ; ブロック要素
     (set-char-table-range char-width-table '(#x25A0  .  #x25FF) 1) ; 幾何学図形
     (set-char-table-range char-width-table '(#x2600  .  #x26FF) 1) ; シンボル
-    (set-char-table-range char-width-table '(#x2700  .  #x27BF) 1) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2700  .  #x27BF) 2) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2800  .  #x2FFF) 1) ; 
     (set-char-table-range char-width-table '(#x1F000 . #x1F9FF) 1) ; Emoticons / Supplemental Symbols
+    ; (set-char-table-range char-width-table '(#xFE0F . #xFFFF) 0) ; VS16 (U+FE0F) 単体の幅を 0 にして、先行文字の幅を邪魔させない
+    
+    (set-char-table-range composition-function-table '(#xFE00 . #xFE0F) nil)
     ;; ターミナル表示用テーブルも強制的に合わせる
     (when (fboundp 'set-terminal-char-width)
       (set-terminal-char-width #x25B2 2))
+
     ))
 
 (add-hook 'after-init-hook #'my-setup-ambiguous-width)
 (add-hook 'tty-setup-hook #'my-setup-ambiguous-width)
 
-(with-eval-after-load 'mule
-  )
 
-(with-eval-after-load 'mule
-  ;; 絵文字プロトコルを強制的に Wide (2) に上書き
-  (let ((table (make-char-table nil)))
-    ;; ❗️ (U+2757) を含む範囲を強制的に 2 カラムへ
-    (set-char-table-range char-width-table #x2757 2)
-    ;; VS16 (U+FE0F) 単体の幅を 0 にして、先行文字の幅を邪魔させない
-    (set-char-table-range char-width-table #xFE0F 0)
-    
-    ;; 矢印記号（U+2190など）を含む範囲を Unicode 優先にする
-    (set-char-table-range char-code-property-table '(#x2100 . #x21FF) 'unicode)
-    
-    ;; その上で、Emacsが「2カラム分」の空白をターミナルに予約するように強制
-    (set-char-table-range char-width-table '(#x2100 . #x21FF) 2)
-    
-    ;; 広範囲にわたる絵文字・記号の再定義
-    (dolist (range '((#x2100 . #x27BF)    ; Letterlike Symbols ～ Dingbats
-                     (#x1F300 . #x1F9FF))) ; Miscellaneous Symbols and Pictographs
-      (set-char-table-range char-width-table range 2))))
-
-(when (not (display-graphic-p))
-  ;; U+2757 の合成ルールをテーブルから抹消する
-  (set-char-table-range composition-function-table #x2757 nil)
-  ;; ついでに Variation Selector も無効化
-  (set-char-table-range composition-function-table #xFE0F nil))
+; (with-eval-after-load 'mule
+;   )
+; 
+; (with-eval-after-load 'mule
+;   ;; 絵文字プロトコルを強制的に Wide (2) に上書き
+;   (let ((table (make-char-table nil)))
+;     ;; ❗️ (U+2757) を含む範囲を強制的に 2 カラムへ
+;     (set-char-table-range char-width-table #x2757 2)
+;     ;; VS16 (U+FE0F) 単体の幅を 0 にして、先行文字の幅を邪魔させない
+;     (set-char-table-range char-width-table #xFE0F 0)
+;     
+;     ;; 矢印記号（U+2190など）を含む範囲を Unicode 優先にする
+;     (set-char-table-range char-code-property-table '(#x2100 . #x21FF) 'unicode)
+;     
+;     ;; その上で、Emacsが「2カラム分」の空白をターミナルに予約するように強制
+;     (set-char-table-range char-width-table '(#x2100 . #x21FF) 2)
+;     
+;     ;; 広範囲にわたる絵文字・記号の再定義
+;     (dolist (range '((#x2100 . #x27BF)    ; Letterlike Symbols ～ Dingbats
+;                      (#x1F300 . #x1F9FF))) ; Miscellaneous Symbols and Pictographs
+;       (set-char-table-range char-width-table range 2))))
+; 
+; (when (not (display-graphic-p))
+;   ;; U+2757 の合成ルールをテーブルから抹消する
+;   (set-char-table-range composition-function-table #x2757 nil)
+;   ;; ついでに Variation Selector も無効化
+;   (set-char-table-range composition-function-table #xFE0F nil))
 
 
 ;; ターミナルでの描画遅延と最適化によるゴミ残りを防ぐ
