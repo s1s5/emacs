@@ -213,7 +213,7 @@
     (set-char-table-range char-width-table '(#x2600  .  #x26FF) 1) ; シンボル
     (set-char-table-range char-width-table '(#x2700  .  #x27BF) 2) ; Dingbats (❗️ はここ)
     (set-char-table-range char-width-table '(#x2800  .  #x2FFF) 1) ; 
-    (set-char-table-range char-width-table '(#x1F000 . #x1F9FF) 1) ; Emoticons / Supplemental Symbols
+    (set-char-table-range char-width-table '(#x1F000 . #x1F2FF) 1) ; Emoticons / Supplemental Symbols
     ; (set-char-table-range char-width-table '(#xFE0F . #xFFFF) 0) ; VS16 (U+FE0F) 単体の幅を 0 にして、先行文字の幅を邪魔させない
     
     (set-char-table-range composition-function-table '(#xFE00 . #xFE0F) nil)
@@ -231,6 +231,10 @@
 ;;; -япои.
 ;;; 일본
 ;;; 어로,
+;;; 📝
+;;; 🔍
+;;; 💻
+;;; 🌐
 
 ; (with-eval-after-load 'mule
 ;   )
