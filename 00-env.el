@@ -200,6 +200,7 @@
     ;; 記号やギリシャ文字などの曖昧幅の範囲を2カラムに設定
     (set-char-table-range char-width-table '(#x00A1  .  #x00FF) 1)
     (set-char-table-range char-width-table '(#x0370  .  #x03FF) 1) ; ギリシャ文字
+    (set-char-table-range char-width-table '(#x0400  .  #x1FFF) 1)
     (set-char-table-range char-width-table '(#x2010  .  #x205E) 1) ; 記号・ダッシュ
     (set-char-table-range char-width-table '(#x2100  .  #x218F) 1) ; 文字様記号
     (set-char-table-range char-width-table '(#x2190  .  #x21FF) 1) ; 文字様記号
@@ -225,6 +226,11 @@
 (add-hook 'after-init-hook #'my-setup-ambiguous-width)
 (add-hook 'tty-setup-hook #'my-setup-ambiguous-width)
 
+;;; П
+;;; о
+;;; -япои.
+;;; 일본
+;;; 어로,
 
 ; (with-eval-after-load 'mule
 ;   )
