@@ -140,3 +140,4 @@
 
 ; agent-shell
 (global-set-key (kbd "<f8>") 'agent-shell-goose-start-agent)
+(global-set-key (kbd "<f9>") 'global-font-lock-mode)

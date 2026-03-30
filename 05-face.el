@@ -8,4 +8,3 @@
 (set-face-foreground 'font-lock-type-face "#aaaaff")
 (set-face-foreground 'font-lock-function-name-face "#88aaff")
 (set-face-foreground 'minibuffer-prompt "#1e90ff")
-

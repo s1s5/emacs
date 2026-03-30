@@ -18,7 +18,7 @@
                               (setq-local mode-line-format nil)
 
                               ;; 再描画最小化
-                              (setq-local jit-lock-defer-time 3.0)
+                              (setq-local jit-lock-defer-time 0.1)
                               (setq-local scroll-conservatively 100000)
 
                               ;; キー設定
@@ -32,4 +32,4 @@
 ;; グローバル抑制
 (setq header-line-format nil)
 (blink-cursor-mode -1)
-(setq jit-lock-defer-time 1.0)
+(setq jit-lock-defer-time 0.1)
