@@ -211,7 +211,8 @@
     (set-char-table-range char-width-table '(#x2580  .  #x259F) 1) ; ブロック要素
     (set-char-table-range char-width-table '(#x25A0  .  #x25FF) 1) ; 幾何学図形
     (set-char-table-range char-width-table '(#x2600  .  #x26FF) 1) ; シンボル
-    (set-char-table-range char-width-table '(#x2700  .  #x27BF) 2) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2700  .  #x274F) 1) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2750  .  #x27BF) 2) ; Dingbats (❗️ はここ)
     (set-char-table-range char-width-table '(#x2800  .  #x2FFF) 1) ; 
     (set-char-table-range char-width-table '(#x1F000 . #x1F2FF) 1) ; Emoticons / Supplemental Symbols
     ; (set-char-table-range char-width-table '(#xFE0F . #xFFFF) 0) ; VS16 (U+FE0F) 単体の幅を 0 にして、先行文字の幅を邪魔させない
@@ -235,6 +236,9 @@
 ;;; 🔍
 ;;; 💻
 ;;; 🌐
+;;; ✗ 
+;;; ✓ 
+
 
 ; (with-eval-after-load 'mule
 ;   )
