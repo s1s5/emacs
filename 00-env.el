@@ -216,9 +216,9 @@
     (set-char-table-range char-width-table '(#x2706  .  #x273F) 1) ; 
     (set-char-table-range char-width-table '(#x2740  .  #x2740) 2) ; 
     (set-char-table-range char-width-table '(#x2741  .  #x274F) 1) ; 
-    (set-char-table-range char-width-table '(#x2750  .  #x2757) 1) ; Dingbats (❗️ はここ)
-    (set-char-table-range char-width-table '(#x2758  .  #x275F) 1) ; Dingbats (❗️ はここ)
-    (set-char-table-range char-width-table '(#x2760  .  #x27BF) 1) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2750  .  #x2757) 1) ; 
+    (set-char-table-range char-width-table '(#x2758  .  #x275F) 1) ; 
+    (set-char-table-range char-width-table '(#x2760  .  #x27BF) 1) ; 
     (set-char-table-range char-width-table '(#x2800  .  #x2DFF) 1) ; 
     (set-char-table-range char-width-table '(#x2DE0  .  #x2DFF) 2) ; 
     (set-char-table-range char-width-table '(#x2E00  .  #xFFFF) 2) ; 
@@ -283,6 +283,7 @@
 ;;; ✓  : #x2713
 ;;; ✅ : #x2705 
 ;;; ❌ : #x274C
+;;; ❯ : #x276F
 
 ; (with-eval-after-load 'mule
 ;   )
