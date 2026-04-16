@@ -213,12 +213,49 @@
     (set-char-table-range char-width-table '(#x2600  .  #x26FF) 1) ; シンボル
     (set-char-table-range char-width-table '(#x2700  .  #x2704) 1) ; 
     (set-char-table-range char-width-table '(#x2705  .  #x2705) 2) ;
-    (set-char-table-range char-width-table '(#x2706  .  #x2740) 1) ; 
-    (set-char-table-range char-width-table '(#x2740  .  #x274F) 2) ; 
-    (set-char-table-range char-width-table '(#x2750  .  #x27BF) 2) ; Dingbats (❗️ はここ)
-    (set-char-table-range char-width-table '(#x2800  .  #x2FFF) 1) ; 
+    (set-char-table-range char-width-table '(#x2706  .  #x273F) 1) ; 
+    (set-char-table-range char-width-table '(#x2740  .  #x2740) 2) ; 
+    (set-char-table-range char-width-table '(#x2741  .  #x274F) 1) ; 
+    (set-char-table-range char-width-table '(#x2750  .  #x2757) 1) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2758  .  #x275F) 1) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2760  .  #x27BF) 1) ; Dingbats (❗️ はここ)
+    (set-char-table-range char-width-table '(#x2800  .  #x2DFF) 1) ; 
+    (set-char-table-range char-width-table '(#x2DE0  .  #x2DFF) 2) ; 
+    (set-char-table-range char-width-table '(#x2E00  .  #xFFFF) 2) ; 
     (set-char-table-range char-width-table '(#x1F000 . #x1F2FF) 1) ; Emoticons / Supplemental Symbols
     ; (set-char-table-range char-width-table '(#xFE0F . #xFFFF) 0) ; VS16 (U+FE0F) 単体の幅を 0 にして、先行文字の幅を邪魔させない
+
+    (dolist (c '(
+                 ;; 時計・UI
+                 ?⌚ ?⌛ ?⏩ ?⏪ ?⏫ ?⏬ ?⏰ ?⏳ ?〈 ?〉 ?♿ ?⚓ ?⛎ 00
+                    
+                    ;; 幾何・ブロック
+                    ?◽ ?◾ ?⚪ ?⚫ ?⬛ ?⬜ ?⭐ ?⭕
+                    
+                    ;; 天気・物体
+                    ?☔ ?☕ ?⚓ ?⚡ ?⚽ ?⚾ ?⛄ ?⛅ ?⛔ ?⛪ ?⛲ ?⛳ ?⛵ ?⛺ ?⛽
+                    
+                    ;; 星座
+                    ?♈ ?♉ ?♊ ?♋ ?♌ ?♍ ?♎ ?♏ ?♐ ?♑ ?♒ ?♓
+                    
+                    ;; 記号系（UI）
+                    ?➕ ?➖ ?➗ ?➰ ?➿
+                    
+                    ;; 手・装飾
+                    ?✊ ?✋ ?✨
+                    
+                    ;; Dingbats（厳選）
+                    ?❄ ?❌ ?❎ ?❓ ?❔ ?❕ ?❗ ?❀
+
+                    
+                    ))
+      (aset char-width-table c 2))
+
+    (aset char-width-table ?❄ 1)
+    (aset char-width-table ?❐ 1)
+    (aset char-width-table ?❑ 1)
+    (aset char-width-table ?❒ 1)
+    (aset char-width-table ?❖ 1)
     
     (set-char-table-range composition-function-table '(#xFE00 . #xFE0F) nil)
     ;; ターミナル表示用テーブルも強制的に合わせる
@@ -227,8 +264,11 @@
 
     ))
 
+
 (add-hook 'after-init-hook #'my-setup-ambiguous-width)
 (add-hook 'tty-setup-hook #'my-setup-ambiguous-width)
+
+
 
 ;;; П
 ;;; о
